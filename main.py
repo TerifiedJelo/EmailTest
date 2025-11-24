@@ -92,8 +92,7 @@ def send_email_gmail(to_email: str, subject: str, text_content: str, html_conten
         message.attach(part2)
 
         # Connect to Gmail SMTP server
-        server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)
-        server.starttls()
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10)
         server.login(GMAIL_USER, GMAIL_APP_PASSWORD)
 
         # Send email
